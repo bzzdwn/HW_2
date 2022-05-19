@@ -55,7 +55,8 @@ bool Todo_Model::setData(const QModelIndex &index, const QVariant &value, int ro
             if(value == Qt::Unchecked){
         list[index.row()].check = false;
             }
-        emit dataChanged(index, index);
+
+        emit dataChanged(index, QAbstractTableModel::index(index.row(), index.column() + 2));
         return true;
     }
     }
